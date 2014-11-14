@@ -418,7 +418,6 @@
     <Compile Include="Promises\DeferredT.cs" />
     <Compile Include="Promises\IPromise.cs" />
     <Compile Include="Promises\Deferred.cs" />
-    <Compile Include="Utility\Browser.cs" />
     <Compile Include="Utility\JsonSerializer\IJsonSerializer.cs" />
     <Compile Include="Utility\JsonSerializer\JsonSerializer.cs" />
     <Compile Include="Implementation\SelectionSetComparer.cs" />

@@ -57,7 +57,7 @@ namespace CsQuery
 
         #region private properties
         
-        private static Browser _Browser;
+        //private static Browser _Browser;
         
         #endregion
 
@@ -199,18 +199,18 @@ namespace CsQuery
         /// (Alpha) Provide simple user agent information.
         /// </summary>
 
-        public static Browser Browser
-        {
-            get
-            {
-                if (_Browser == null)
-                {
-                    _Browser = new Browser(HttpContext.Current);
-                }
+        //public static Browser Browser
+        //{
+        //    get
+        //    {
+        //        if (_Browser == null)
+        //        {
+        //            _Browser = new Browser(HttpContext.Current);
+        //        }
 
-                return _Browser;
-            }
-        }
+        //        return _Browser;
+        //    }
+        //}
         
         #endregion
 
