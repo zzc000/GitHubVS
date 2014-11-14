@@ -22,12 +22,12 @@ namespace CsQuery.Utility
 
     public static class FastActivator
     {
-      
+      /*
         private static ConcurrentDictionary<Type,CreateObject> creatorCache = new ConcurrentDictionary<Type,CreateObject>();
 
         private readonly static Type coType = typeof(CreateObject);
         private delegate object CreateObject();
-
+        */
         /// <summary>
         /// Create a new instance of type T
         /// </summary>
@@ -59,6 +59,8 @@ namespace CsQuery.Utility
 
         public static object CreateInstance(Type type)
         {
+            return Activator.CreateInstance(type);
+            /*
             CreateObject c;
             if (!type.IsClass)
             {
@@ -78,7 +80,7 @@ namespace CsQuery.Utility
 
             }
             return c();
-
+            */
         }
 
     }
