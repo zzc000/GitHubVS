@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using CsQuery.Implementation;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CsQuery.Implementation;
-using CsQuery.ExtensionMethods;
-using CsQuery.ExtensionMethods.Internal;
-using CsQuery.Engine;
 
 namespace CsQuery
 {

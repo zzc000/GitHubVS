@@ -1,16 +1,7 @@
-﻿using System;
+﻿using CsQuery.Engine;
+using CsQuery.Implementation;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using CsQuery.Utility;
-using CsQuery.ExtensionMethods;
-using CsQuery.ExtensionMethods.Internal;
-using CsQuery.Engine;
-using CsQuery.Implementation;
-using CsQuery.HtmlParser;
-using CsQuery.StringScanner;
 
 
 namespace CsQuery

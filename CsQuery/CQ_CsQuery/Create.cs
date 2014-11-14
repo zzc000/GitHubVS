@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Dynamic;
-using System.IO;
-using System.Web;
-using System.Web.Script.Serialization;
-
-using CsQuery.ExtensionMethods.Internal;
+﻿using CsQuery.ExtensionMethods.Internal;
 using CsQuery.Utility;
-using CsQuery.Engine;
-using CsQuery.Web;
-using CsQuery.Promises;
-using CsQuery.Implementation;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 namespace CsQuery
 {

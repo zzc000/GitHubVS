@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web.Script.Serialization;
 
 namespace CsQuery.Utility
 {
@@ -22,17 +21,17 @@ namespace CsQuery.Utility
 
     public class JsonSerializer: IJsonSerializer
     {
-        /// <summary>
-        ///  The real serializer implementation. We need to set up a DI contiainer to manage this (see todo above)
-        /// </summary>
-        private static Lazy<JavaScriptSerializer> _Serializer = new Lazy<JavaScriptSerializer>();
-        private static JavaScriptSerializer Serializer
-        {
-            get
-            {
-                return _Serializer.Value;
-            }
-        }
+        ///// <summary>
+        /////  The real serializer implementation. We need to set up a DI contiainer to manage this (see todo above)
+        ///// </summary>
+        //private static Lazy<JavaScriptSerializer> _Serializer = new Lazy<JavaScriptSerializer>();
+        //private static JavaScriptSerializer Serializer
+        //{
+        //    get
+        //    {
+        //        return _Serializer.Value;
+        //    }
+        //}
         
         private StringBuilder sb = new StringBuilder();
 
@@ -72,7 +71,8 @@ namespace CsQuery.Utility
 
         public object Deserialize(string value, Type type)
         {
-            return Serializer.ConvertToType(Serializer.DeserializeObject(value), type);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject(value, type);
+            //return Serializer.ConvertToType(Serializer.DeserializeObject(value), type);
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace CsQuery.Utility
 
         public T Deserialize<T>(string value)
         {
-            return Serializer.Deserialize<T>(value);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(value);
         }
 
         #region private methods
@@ -110,7 +110,7 @@ namespace CsQuery.Utility
                 foreach (KeyValuePair<string,object> kvp in 
                     Objects.EnumerateProperties<KeyValuePair<string,object>>(
                         value,
-                        new Type[] {typeof(ScriptIgnoreAttribute)})
+                        new Type[] { typeof(Newtonsoft.Json.JsonIgnoreAttribute) })
                 ) {
                     if (first)
                     {
@@ -132,7 +132,8 @@ namespace CsQuery.Utility
         {
             if (Objects.IsImmutable(value))
             {
-                sb.Append(Serializer.Serialize(value));
+                sb.Append(Newtonsoft.Json.JsonConvert.SerializeObject(value));
+                //sb.Append(Serializer.Serialize(value));
             }
             else if (IsDictionary(value))
             {
