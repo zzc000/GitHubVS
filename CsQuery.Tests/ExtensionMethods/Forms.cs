@@ -22,33 +22,33 @@ namespace CsQuery.Tests.ExtensionMethods
     {
 
 
-        [TestMethod,Test]
-        public void InputText() {
-            var dom = GetDom();
-            var postData = new NameValueCollection();
+        //[TestMethod,Test]
+        //public void InputText() {
+        //    var dom = GetDom();
+        //    var postData = new NameValueCollection();
             
-            postData["H1"]=null;
-            var h2 = postData["H2"]="hidden value";
-            var pwd= postData["PWD"]="my secret password";
-            var t1 = postData["T1"]="new text";
-            var t2 = postData["T2"]="updated text";
+        //    postData["H1"]=null;
+        //    var h2 = postData["H2"]="hidden value";
+        //    var pwd= postData["PWD"]="my secret password";
+        //    var t1 = postData["T1"]="new text";
+        //    var t2 = postData["T2"]="updated text";
             
-            Assert.AreEqual("x",dom["input[name=H1]"].Val());
-            Assert.AreEqual("",dom["input[name=H2]"].Val());
-            Assert.AreEqual("",dom["input[name=PWD]"].Val());
-            Assert.AreEqual("",dom["input[name=T1]"].Val());
-            Assert.AreEqual("YES",dom["input[name=T2]"].Val());
+        //    Assert.AreEqual("x",dom["input[name=H1]"].Val());
+        //    Assert.AreEqual("",dom["input[name=H2]"].Val());
+        //    Assert.AreEqual("",dom["input[name=PWD]"].Val());
+        //    Assert.AreEqual("",dom["input[name=T1]"].Val());
+        //    Assert.AreEqual("YES",dom["input[name=T2]"].Val());
 
-            dom["input[name=H1]"].Val("change h1");
+        //    dom["input[name=H1]"].Val("change h1");
 
-            dom.RestorePost(postData);
+        //    dom.RestorePost(postData);
 
-            Assert.AreEqual("", dom.FormValue("H1"));
-            Assert.AreEqual(h2,dom.FormValue("H2"));
-            Assert.AreEqual(pwd, dom.FormValue("PWD"));
-            Assert.AreEqual(t1, dom.FormValue("T1"));
-            Assert.AreEqual(t2, dom.FormValue("T2"));
-        }
+        //    Assert.AreEqual("", dom.FormValue("H1"));
+        //    Assert.AreEqual(h2,dom.FormValue("H2"));
+        //    Assert.AreEqual(pwd, dom.FormValue("PWD"));
+        //    Assert.AreEqual(t1, dom.FormValue("T1"));
+        //    Assert.AreEqual(t2, dom.FormValue("T2"));
+        //}
 
         //[TestMethod, Test]
         public void InputSelect()
@@ -56,50 +56,50 @@ namespace CsQuery.Tests.ExtensionMethods
             throw new NotImplementedException();
         }
 
-        [TestMethod, Test]
-        public void InputCheckbox()
-        {
-            var dom = GetDom();
-            var postData = new NameValueCollection();
+        //[TestMethod, Test]
+        //public void InputCheckbox()
+        //{
+        //    var dom = GetDom();
+        //    var postData = new NameValueCollection();
             
-            postData["check"]=null;
-            postData["C1"] = "0";
+        //    postData["check"]=null;
+        //    postData["C1"] = "0";
 
-            Assert.IsTrue(dom.FormElement("check").Is(":checked"));
-            Assert.IsFalse(dom.FormElement("C1").Is(":checked"));
+        //    Assert.IsTrue(dom.FormElement("check").Is(":checked"));
+        //    Assert.IsFalse(dom.FormElement("C1").Is(":checked"));
             
-            dom.RestorePost(postData);
-            Assert.IsFalse(dom.FormElement("check").Is(":checked"));
-            Assert.IsFalse(dom.FormElement("C1").Is(":checked"));
+        //    dom.RestorePost(postData);
+        //    Assert.IsFalse(dom.FormElement("check").Is(":checked"));
+        //    Assert.IsFalse(dom.FormElement("C1").Is(":checked"));
 
-            postData["check"] = "on";
-            postData["C1"] = "1";
+        //    postData["check"] = "on";
+        //    postData["C1"] = "1";
             
-            dom.RestorePost(postData);
-            Assert.IsTrue(dom.FormElement("check").Is(":checked"));
-            Assert.IsTrue(dom.FormElement("C1").Is(":checked"));
-        }
+        //    dom.RestorePost(postData);
+        //    Assert.IsTrue(dom.FormElement("check").Is(":checked"));
+        //    Assert.IsTrue(dom.FormElement("C1").Is(":checked"));
+        //}
 
         //[TestMethod, Test]
-        public void InputCheckboxMultiple()
-        {
-            var dom = GetDom();
-            var postData = new NameValueCollection();
-            postData["check"] = null;
+        //public void InputCheckboxMultiple()
+        //{
+        //    var dom = GetDom();
+        //    var postData = new NameValueCollection();
+        //    postData["check"] = null;
 
-            Assert.IsTrue(dom.FormValue<bool>("check"));
+        //    Assert.IsTrue(dom.FormValue<bool>("check"));
 
-            dom.RestorePost(postData);
-            Assert.IsFalse(dom.FormValue<bool>("check"));
+        //    dom.RestorePost(postData);
+        //    Assert.IsFalse(dom.FormValue<bool>("check"));
 
-            postData["check"] = "on";
-            dom.RestorePost(postData);
-            Assert.IsFalse(dom.FormValue<bool>("check"));
+        //    postData["check"] = "on";
+        //    dom.RestorePost(postData);
+        //    Assert.IsFalse(dom.FormValue<bool>("check"));
 
 
             
 
-        }
+        //}
         //[TestMethod, Test]
         public void InputRadio()
         {

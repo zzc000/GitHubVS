@@ -132,80 +132,80 @@ namespace CsQuery.ExtensionMethods.Forms
             
         }
 
-        /// <summary>
-        /// (BETA) Update form values from the HTTP post data in the current HttpContext.
-        /// </summary>
-        ///
-        /// <param name="context">
-        /// The context in which to find process form elements
-        /// </param>
-        ///
-        /// <returns>
-        /// The context
-        /// </returns>
+        ///// <summary>
+        ///// (BETA) Update form values from the HTTP post data in the current HttpContext.
+        ///// </summary>
+        /////
+        ///// <param name="context">
+        ///// The context in which to find process form elements
+        ///// </param>
+        /////
+        ///// <returns>
+        ///// The context
+        ///// </returns>
 
-        public static CQ RestorePost(this CQ context)
-        {
+        //public static CQ RestorePost(this CQ context)
+        //{
 
-            return RestorePost(context, HttpContext.Current.Request.Form);
-        }
+        //    return RestorePost(context, HttpContext.Current.Request.Form);
+        //}
 
-        /// <summary>
-        /// (Beta) Update form values from the data in collection provided.
-        /// </summary>
-        ///
-        /// <param name="selection">
-        /// The selections set to update form values within; only child elements of elements in the
-        /// selection set will be processed.
-        /// </param>
-        /// <param name="postData">
-        /// Information describing the post.
-        /// </param>
-        ///
-        /// <returns>
-        /// A CQ object with all form elements searched.
-        /// </returns>
+        ///// <summary>
+        ///// (Beta) Update form values from the data in collection provided.
+        ///// </summary>
+        /////
+        ///// <param name="selection">
+        ///// The selections set to update form values within; only child elements of elements in the
+        ///// selection set will be processed.
+        ///// </param>
+        ///// <param name="postData">
+        ///// Information describing the post.
+        ///// </param>
+        /////
+        ///// <returns>
+        ///// A CQ object with all form elements searched.
+        ///// </returns>
 
-        public static CQ RestorePost(this CQ selection, NameValueCollection postData)
-        {
-            string selector = "input[name], select[name], button[name], textarea";
-            CQ src = selection.Selector == null ?
-                selection.Select(selector) :
-                selection.Find(selector);
+        //public static CQ RestorePost(this CQ selection, NameValueCollection postData)
+        //{
+        //    string selector = "input[name], select[name], button[name], textarea";
+        //    CQ src = selection.Selector == null ?
+        //        selection.Select(selector) :
+        //        selection.Find(selector);
 
-            HashSet<string> keys = new HashSet<string>(postData.AllKeys);
-            foreach (IDomElement e in src)
-            {
-                if (keys.Contains(e.Name))
-                {
-                    RestoreData(e, selection, postData[e.Name]);
-                }
-            }
-            return selection;
+        //    HashSet<string> keys = new HashSet<string>(postData.AllKeys);
+        //    foreach (IDomElement e in src)
+        //    {
+        //        if (keys.Contains(e.Name))
+        //        {
+        //            RestoreData(e, selection, postData[e.Name]);
+        //        }
+        //    }
+        //    return selection;
 
-        }
+        //}
 
-        /// <summary>
-        /// (Alpha) Update form values from the data in httpContext.Request.Form.
-        /// </summary>
-        ///
-        /// <param name="selection">
-        /// The selections set to update form values within; only child elements of elements in the
-        /// selection set will be processed.
-        /// </param>
-        /// <param name="httpContext">
-        /// The HttpContext from which to obtain post data
-        /// </param>
-        ///
-        /// <returns>
-        /// A CQ object with all form elements searched.
-        /// </returns>
+        ///// <summary>
+        ///// (Alpha) Update form values from the data in httpContext.Request.Form.
+        ///// </summary>
+        /////
+        ///// <param name="selection">
+        ///// The selections set to update form values within; only child elements of elements in the
+        ///// selection set will be processed.
+        ///// </param>
+        ///// <param name="httpContext">
+        ///// The HttpContext from which to obtain post data
+        ///// </param>
+        /////
+        ///// <returns>
+        ///// A CQ object with all form elements searched.
+        ///// </returns>
 
-        public static CQ RestorePost(this CQ selection, HttpContext httpContext)
-        {
-            return RestorePost(selection,httpContext.Request.Form);
+        //public static CQ RestorePost(this CQ selection, HttpContext httpContext)
+        //{
+        //    return RestorePost(selection,httpContext.Request.Form);
 
-        }
+        //}
 
         /// <summary>
         /// Restore "value" to a single element.
