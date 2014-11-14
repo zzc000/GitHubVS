@@ -136,6 +136,8 @@ namespace CsQuery.Utility
             }
             else if (IsDictionary(value))
             {
+                sb.Append(Newtonsoft.Json.JsonConvert.SerializeObject(value));
+                /*
                 sb.Append("{");
                 bool first = true;
                 foreach (dynamic item in (IEnumerable)value)
@@ -151,6 +153,7 @@ namespace CsQuery.Utility
                     sb.Append("\"" + item.Key.ToString() + "\":" + JSON.ToJSON(item.Value));
                 }
                 sb.Append("}");
+                */
             }
             else if (value is IEnumerable)
             {
