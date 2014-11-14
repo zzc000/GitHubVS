@@ -411,7 +411,6 @@
     <Compile Include="Utility\Types.cs" />
     <Compile Include="Web\enumRequestState.cs" />
     <Compile Include="Web\ICsqWebRequestMetadata.cs" />
-    <Compile Include="Web\WebForms.cs" />
     <Compile Include="Output\IOutputFormatter.cs" />
     <Compile Include="Output\FormatPlainText.cs" />
     <Compile Include="Promises\WhenAll.cs" />
@@ -481,7 +480,6 @@
     <Compile Include="JsObject.cs" />
     <Compile Include="Dom\Implementation\ChildNodeList.cs" />
     <Compile Include="Implementation\RangeSortedDictionary.cs" />
-    <Compile Include="Web\CsQueryHttpContext.cs" />
     <Compile Include="Engine\Selector.cs" />
     <Compile Include="Dom\Implementation\DomElement.cs" />
     <Compile Include="ExtensionMethods\ExtensionMethods.cs" />
